@@ -14,8 +14,8 @@ if (string.IsNullOrEmpty(userInput) || string.IsNullOrWhiteSpace(userInput))
 try
 {
     // Input : c://temp//filename.txt or c:\\temp\\filename.txt
-    // Exception 1: System.IO.DirectoryNotFoundException: 'Could not find a part of the path 'c:\temp\filename.txt'.'
-    // Fix is : create this folder and file before you run the following code.
+    // Exception: System.IO.DirectoryNotFoundException: 'Could not find a part of the path 'c:\temp\filename.txt'.'
+    // Fix for this issue : create this folder and file before you run the following code.
 
     // Other option: 
     /*
@@ -37,7 +37,7 @@ try
         File.Create($"{directory}\\filename.txt");
     }
 
-    // The following code always overwrite to make this code to append then add second parameter as true
+    // The following code always overwrite the file and to make this code to append the new text then add second parameter as true
     using (StreamWriter writer = new StreamWriter($"{directory}\\filename.txt", true))
     {
         writer.WriteLine(userInput);
